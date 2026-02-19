@@ -1,0 +1,24 @@
+{
+  "name": "zaitoonapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghufranataie/zaitoonAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ghufranataie/zaitoonAPI/issues"
+  },
+  "homepage": "https://github.com/ghufranataie/zaitoonAPI#readme",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.993.0"
+  }
+}
