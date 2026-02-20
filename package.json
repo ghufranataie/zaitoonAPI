@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ghufranataie/zaitoonAPI#readme",
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.993.0"
+    "@aws-sdk/client-secrets-manager": "^3.994.0",
+    "mysql2": "^3.17.3"
   }
 }
