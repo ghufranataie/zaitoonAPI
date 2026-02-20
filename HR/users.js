@@ -1,4 +1,4 @@
-const getDBConnection = require('../config/db');
+const getDbConnection = require('../config/db');
 
 exports.createUser = async (event) => {
     const db = await getDBConnection();

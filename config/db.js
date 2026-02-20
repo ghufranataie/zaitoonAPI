@@ -17,4 +17,4 @@ async function getDbConnection() {
     });
     return connection;
 }
-module.exports = getDBConnection;
+module.exports = getDbConnection;
