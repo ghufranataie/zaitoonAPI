@@ -24,7 +24,7 @@ exports.getUsers = async () => {
 
     return {
         statusCode: 200,
-        body: JSON.stringify(rows)
+        body: rows
     };
 };
 
