@@ -2,8 +2,10 @@ const users = require('./HR/users');
 
 exports.handler = async (event) => {
 
+    
     const method = event.httpMethod;
     const path = event.resource;
+    console.log("Event received from API Gateway:", event);
 
     try {
 
