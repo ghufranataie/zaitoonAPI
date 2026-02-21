@@ -2,34 +2,32 @@ const users = require('./HR/users');
 
 exports.handler = async (event) => {
     const method = event.httpMethod;
-    const path = event.path;
-    console.log("Event received from API Gateway:", event);
+    const resource = event.resource;  // Use resource, not path
+    console.log("Event:", event);
 
     try {
-        if (method === "POST" && path === "/users") {
+        if (method === "POST" && resource === "/users") {
             return await users.createUser(event);
         }
 
-        if (method === "GET" && path === "/users") {
+        if (method === "GET" && resource === "/users") {
             return await users.getUsers();
         }
 
-        if (method === "PUT" && path.startsWith("/users/")) {
-            const id = path.split("/")[2];
-            return await users.updateUser(event, id);
+        if (method === "PUT" && resource === "/users/{id}") {
+            return await users.updateUser(event);
         }
 
-        if (method === "DELETE" && path.startsWith("/users/")) {
-            const id = path.split("/")[2];
-            return await users.deleteUser(event, id);
+        if (method === "DELETE" && resource === "/users/{id}") {
+            return await users.deleteUser(event);
         }
 
         return {
             statusCode: 404,
             body: JSON.stringify({ message: "Not Found" })
         };
-    } catch (error) {
-        console.error(error);
+    } catch (err) {
+        console.error(err);
         return {
             statusCode: 500,
             body: JSON.stringify({ message: "Internal Server Error" })
