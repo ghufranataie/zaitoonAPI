@@ -4,7 +4,7 @@ exports.handler = async (event) => {
 
     
     const method = event.httpMethod;
-    const path = event.resource;
+    const path = event.path;
     console.log("Event received from API Gateway:", event);
 
     try {
