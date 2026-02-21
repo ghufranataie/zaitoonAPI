@@ -18,7 +18,7 @@ exports.createUser = async (event) => {
 exports.getUsers = async () => {
     const db = await getDBConnection();
 
-    const [rows] = await db.execute("SELECT * FROM users");
+    const [rows] = await db.execute("SELECT usrID, concat(perName, ' ', perLastName) as usrFullName, perPhoto, usrName, usrRole, usrStatus, usrBranch, usrEmail, perPhone, usrToken, usrFCP, usrEntryDate from users join personal on personal.perID = users.usrOwner where usrRole != 'super'");
 
     return {
         statusCode: 200,
