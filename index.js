@@ -1,14 +1,11 @@
 const users = require('./HR/users');
 
 exports.handler = async (event) => {
-
-    
     const method = event.httpMethod;
     const path = event.path;
     console.log("Event received from API Gateway:", event);
 
     try {
-
         if (method === "POST" && path === "/users") {
             return await users.createUser(event);
         }
@@ -17,19 +14,20 @@ exports.handler = async (event) => {
             return await users.getUsers();
         }
 
-        if (method === "PUT" && path === "/users/{id}") {
-            return await users.updateUser(event);
+        if (method === "PUT" && path.startsWith("/users/")) {
+            const id = path.split("/")[2];
+            return await users.updateUser(event, id);
         }
 
-        if (method === "DELETE" && path === "/users/{id}") {
-            return await users.deleteUser(event);
+        if (method === "DELETE" && path.startsWith("/users/")) {
+            const id = path.split("/")[2];
+            return await users.deleteUser(event, id);
         }
 
         return {
             statusCode: 404,
             body: JSON.stringify({ message: "Not Found" })
         };
-
     } catch (error) {
         console.error(error);
         return {
