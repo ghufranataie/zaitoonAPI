@@ -11,7 +11,7 @@ exports.createUser = async (event) => {
 
     return {
         statusCode: 201,
-        body: JSON.stringify({ id: result.insertId })
+        body: { id: result.insertId }
     };
 };
 

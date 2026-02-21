@@ -13,7 +13,7 @@ exports.handler = async (event) => {
             return {
                 statusCode: 201,
                 headers: { "Content-Type": "application/json" },
-                body: result
+                body: JSON.stringify(result)
             };
         }
 
@@ -23,7 +23,7 @@ exports.handler = async (event) => {
             return {
                 statusCode: 200,
                 headers: { "Content-Type": "application/json" },
-                body: result
+                body: JSON.stringify(result)
             };
         }
 
@@ -37,7 +37,7 @@ exports.handler = async (event) => {
             return {
                 statusCode: 200,
                 headers: { "Content-Type": "application/json" },
-                body: result
+                body: JSON.stringify(result)
             };
         }
 
@@ -51,7 +51,7 @@ exports.handler = async (event) => {
             return {
                 statusCode: 200,
                 headers: { "Content-Type": "application/json" },
-                body: result
+                body: JSON.stringify(result)
             };
         }
 
